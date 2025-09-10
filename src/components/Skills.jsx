@@ -43,7 +43,7 @@ const skillImages = [
 
 function Skills() {
   return (
-    <div className="h-auto bg-gray-900 py-20 px-12">
+    <div className="h-auto bg-gray-900 py-20 px-12" id="skills">
       {/* Title */}
       <motion.h1
         className="text-white font-bold text-6xl mb-12"

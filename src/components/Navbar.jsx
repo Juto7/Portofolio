@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 
 function Navbar() {
-  const navItems = ["Skills", "Project", "My Contact"];
+  const navItems = [
+    { label: "Skills", href: "#skills" },
+    { label: "Project", href: "#project" },
+    { label: "My Contact", href: "#contact" },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-black/50 backdrop-blur-md shadow-lg z-50">
@@ -20,9 +24,11 @@ function Navbar() {
               transition={{ type: "spring", stiffness: 300 }}
               className="relative group cursor-pointer text-white text-lg font-medium"
             >
-              {item}
-              {/* Animasi underline */}
-              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-yellow-400 transition-all duration-500 group-hover:w-full"></span>
+              <a href={item.href}>
+                {item.label}
+                {/* Animasi underline */}
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-yellow-400 transition-all duration-500 group-hover:w-full"></span>
+              </a>
             </motion.li>
           ))}
         </ul>
