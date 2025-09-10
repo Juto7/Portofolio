@@ -1,17 +1,15 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import CircularProgress, {
-  circularProgressClasses,
-} from "@mui/material/CircularProgress";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
+import { motion } from "framer-motion";
 
+// Custom Linear Progress
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-  height: 10,
-  borderRadius: 5,
+  height: 12,
+  borderRadius: 8,
   [`&.${linearProgressClasses.colorPrimary}`]: {
     backgroundColor: theme.palette.grey[200],
     ...theme.applyStyles("dark", {
@@ -19,49 +17,53 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     }),
   },
   [`& .${linearProgressClasses.bar}`]: {
-    borderRadius: 5,
-    backgroundColor: "#1a90ff",
+    borderRadius: 8,
+    backgroundColor: "#FFD700", // gold
     ...theme.applyStyles("dark", {
-      backgroundColor: "#308fe8",
+      backgroundColor: "#FFC107",
     }),
   },
 }));
 
+// Skills data
+const skillsData = [
+  { name: "Python", value: 85 },
+  { name: "JavaScript", value: 75 },
+  { name: "React.js", value: 70 },
+  { name: "Data Analysis", value: 80 },
+];
+
 function Skills() {
   return (
-    <div className="h-230 bg-gray-800 ">
-      <div className="pl-40 pt-40">
-        <h1 className="text-white font-bold text-8xl">Skills</h1>
-        <Stack className="mt-10" spacing={4} sx={{ flexGrow: 1 }}>
-          <h1 className="text-white text-4xl"> Python</h1>
-          <BorderLinearProgress
-            className="w-200"
-            variant="determinate"
-            value={80}
-          />
+    <div className="h-auto bg-gray-900 py-20 px-12">
+      {/* Title */}
+      <motion.h1
+        className="text-white font-bold text-6xl mb-12"
+        initial={{ opacity: 0, y: -50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        Skills
+      </motion.h1>
 
-          <h1 className="text-white text-4xl"> HTML</h1>
-          <BorderLinearProgress
-            className="w-200"
-            variant="determinate"
-            value={50}
-          />
-
-          <h1 className="text-white text-4xl"> Python</h1>
-          <BorderLinearProgress
-            className="w-200"
-            variant="determinate"
-            value={60}
-          />
-
-          <h1 className="text-white text-4xl"> Python</h1>
-          <BorderLinearProgress
-            className="w-200"
-            variant="determinate"
-            value={70}
-          />
-        </Stack>
-      </div>
+      {/* Skills list */}
+      <Stack spacing={6}>
+        {skillsData.map((skill, index) => (
+          <motion.div
+            key={skill.name}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: index * 0.2 }}
+          >
+            <h2 className="text-white text-2xl mb-3">{skill.name}</h2>
+            <BorderLinearProgress
+              className="w-[500px]"
+              variant="determinate"
+              value={skill.value}
+            />
+          </motion.div>
+        ))}
+      </Stack>
     </div>
   );
 }
