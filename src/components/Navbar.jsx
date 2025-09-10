@@ -9,14 +9,16 @@ function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-black/50 backdrop-blur-md shadow-lg z-50">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo / Nama */}
-        <h1 className="text-2xl font-bold text-white tracking-wide">
+        <a href="#header">
+        <h1 className="text-2xl pl-34 font-bold text-white tracking-wide">
           My<span className="text-yellow-400">Portofolio</span>
         </h1>
+        </a>
 
         {/* Menu */}
-        <ul className="flex space-x-10">
+        <ul className="flex pr-40 space-x-10">
           {navItems.map((item, index) => (
             <motion.li
               key={index}

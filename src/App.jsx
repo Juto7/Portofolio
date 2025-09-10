@@ -1,7 +1,10 @@
 import * as React from 'react';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import Navbar from './components/Navbar';
 import Header from './components/header';
 import Skills from './components/Skills';
+import Footer from './components/Footer';
+import Contact from './components/Contact';
 
 
 
@@ -11,6 +14,8 @@ function App() {
       <Navbar />
       <Header />
       <Skills />
+      <Contact />
+      <Footer />
     </div>
   );
 }

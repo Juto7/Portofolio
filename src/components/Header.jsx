@@ -3,6 +3,7 @@ function Header() {
     <div
       className="relative h-218 bg-cover bg-center"
       style={{ backgroundImage: "url('/bg.jpg')" }}
+      id="header"
     >
       {/* Overlay dengan opacity */}
       <div className="absolute inset-0 bg-black/60"></div>
