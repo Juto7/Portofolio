@@ -5,7 +5,7 @@ import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { motion } from "framer-motion";
-
+import { Javascript } from "@mui/icons-material";
 // Custom Linear Progress
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 12,
@@ -33,6 +33,14 @@ const skillsData = [
   { name: "Data Analysis", value: 80 },
 ];
 
+// Gambar (taruh di /public/skills/)
+const skillImages = [
+  "/python.png",
+  "/java.png",
+  "/react.svg",
+  "/technical-support.png",
+];
+
 function Skills() {
   return (
     <div className="h-auto bg-gray-900 py-20 px-12">
@@ -46,24 +54,42 @@ function Skills() {
         Skills
       </motion.h1>
 
-      {/* Skills list */}
-      <Stack spacing={6}>
-        {skillsData.map((skill, index) => (
-          <motion.div
-            key={skill.name}
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: index * 0.2 }}
-          >
-            <h2 className="text-white text-2xl mb-3">{skill.name}</h2>
-            <BorderLinearProgress
-              className="w-[500px]"
-              variant="determinate"
-              value={skill.value}
+      {/* Container */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* Skills list */}
+        <Stack spacing={6}>
+          {skillsData.map((skill, index) => (
+            <motion.div
+              key={skill.name}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+            >
+              <h2 className="text-white text-2xl mb-3">{skill.name}</h2>
+              <BorderLinearProgress
+                className="w-[500px]"
+                variant="determinate"
+                value={skill.value}
+              />
+            </motion.div>
+          ))}
+        </Stack>
+
+        {/* Images */}
+        <div className="grid grid-cols-2 gap-6">
+          {skillImages.map((img, index) => (
+            <motion.img
+              key={index}
+              src={img}
+              alt={`skill-${index}`}
+              className="w-40 h-40 object-contain rounded-xl shadow-lg  p-4"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
             />
-          </motion.div>
-        ))}
-      </Stack>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
