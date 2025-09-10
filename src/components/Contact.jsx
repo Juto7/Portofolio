@@ -24,7 +24,14 @@ function ContactForm() {
   };
 
   return (
-    <section className="bg-gray-900 text-white py-20 px-6" id="contact">
+    <section
+      className=" text-white py-20 px-6"
+      id="contact"
+      style={{
+        backgroundImage:
+          " linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(252, 210, 83, 1) 100%)",
+      }}
+    >
       <div className="max-w-5xl mx-auto text-center mb-12">
         <h2 className="text-4xl font-bold mb-4">Contact Me</h2>
         <p className="text-gray-400">
